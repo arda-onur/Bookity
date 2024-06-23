@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookity</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+        <form>
+            <label for="chk" aria-hidden="true">Sign up</label>
+            <input type="text" name="txt" placeholder="Username"  id="usernameRegister" required="">
+            <input type="email" name="email" placeholder="Email" id="mailRegister" required="">
+            <input type="password" name="pswd" placeholder="Password" id="passwordRegister" required="">
+            <button id="signupbutton" type="button">Sign up</button>
+        </form>
+    </div>
+
+    <div class="login">
+        <form>
+            <label for="chk" aria-hidden="true">Login</label>
+            <input type="username" name="username" placeholder="Username" id="username" required="">
+            <input type="password" name="password" placeholder="Password" id="password" required="">
+            <button id="loginbutton" type="button">Login</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Define validateMailandRegister function
+    function validateMailandRegister() {
+        var username = document.getElementById("usernameRegister").value;
+        var password = document.getElementById("passwordRegister").value;
+        var mail = document.getElementById("mailRegister").value;
+        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (username == "" || password == "") {
+            alert("Username or Password cannot be empty");
+        } else if (!regex.test(mail)) {
+            alert("Please write your email correctly");
+        } else {
+            register();
+        }
+    }
+
+    // Define register function
+    function register() {
+        var username = document.getElementById("usernameRegister").value;
+        var password = document.getElementById("passwordRegister").value;
+        var mail = document.getElementById("mailRegister").value;
+
+        var registerResponse = {
+            username: username,
+            password: password,
+            mail: mail
+        };
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8080/user/register");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status == 201) {
+                    var responseText = xhr.responseText;
+                    console.log(responseText);
+                    window.location.href ="verifyAlertPage.html"
+                } else {
+                    alert("Username already exists");
+                    console.log("Answer: ", "User cannot be added");
+                }
+            }
+        };
+        xhr.send(JSON.stringify(registerResponse));
+    }
+
+    document.getElementById("signupbutton").addEventListener("click", validateMailandRegister);
+</script>
+<script>
+    function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+         if(username == ""  || password == ""){
+             alert("Boxes cannot be empty")
+         }else{
+             var loginResponse = {
+                 username: username,
+                 password: password,
+
+             };
+
+             var xhr = new XMLHttpRequest();
+             xhr.open("POST", "http://localhost:8080/user/login");
+             xhr.setRequestHeader("Content-Type", "application/json");
+             xhr.onreadystatechange = function () {
+                 if (xhr.readyState === 4) {
+                     if (xhr.status == 200) {
+                         var responseText = xhr.responseText;
+                         console.log(responseText);
+                         window.location.href ="Main.html"
+                     } else {
+                         alert("Wrong Username or Password");
+
+                     }
+                 }
+             };
+             xhr.send(JSON.stringify(loginResponse));
+         }
+
+
+    }
+
+    document.getElementById("loginbutton").addEventListener("click", login);
+</script>
+</body>
+</html>
