@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("book")
+@RequestMapping("books")
 public class BookCrudRestController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/getbooks")
+    @GetMapping
     public List<BookEntity> getAllBooks() {
         return bookService.getAllBooks();
     }
