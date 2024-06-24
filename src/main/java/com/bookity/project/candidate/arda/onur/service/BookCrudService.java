@@ -1,6 +1,6 @@
 package com.bookity.project.candidate.arda.onur.service;
 
-import Project.bookity.Entity.BookEntity;
+import com.bookity.project.candidate.arda.onur.persistence.model.Book;
 import com.bookity.project.candidate.arda.onur.persistence.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +14,12 @@ import java.util.List;
 public class BookCrudService {
     private final BookRepository bookRepository;
 
-    public List<BookEntity> getAllBooks() {
+    public List<Book> getAllBooks() {
         log.info("Getting all Books");
         return bookRepository.findAll();
     }
 
-    public List<BookEntity> getBooksBy(String input, String category) {
+    public List<Book> getBooksBy(String input, String category) {
         log.info("Getting Books {} {}", category, input);
         if ("NAME".equals(category)) {
             return bookRepository.findByName(input);

@@ -1,6 +1,6 @@
 package Project.bookity.Service;
 
-import Project.bookity.Entity.BookEntity;
+import com.bookity.project.candidate.arda.onur.persistence.model.Book;
 import com.bookity.project.candidate.arda.onur.persistence.repository.BookRepository;
 import com.bookity.project.candidate.arda.onur.service.BookCrudService;
 import org.junit.jupiter.api.Test;
@@ -26,9 +26,9 @@ class BookCrudServiceTest {
     @Test
     void getAllBooks() {
 
-        List<BookEntity> list = Arrays.asList(
-                new BookEntity("1234567890", "Book One", "Fiction","32"),
-                new BookEntity("0987654321", "Book Two", "Non-Fiction","32")
+        List<Book> list = Arrays.asList(
+                new Book("1234567890", "Book One", "Fiction","32"),
+                new Book("0987654321", "Book Two", "Non-Fiction","32")
 
         );
         when(bookRepository.findAll()).thenReturn(list);
@@ -37,32 +37,32 @@ class BookCrudServiceTest {
     @Test
     void getBooksBy() {
 
-        List<BookEntity> listByName = Arrays.asList(
-                new BookEntity("1234567890", "Book One", "Fiction", "32")
+        List<Book> listByName = Arrays.asList(
+                new Book("1234567890", "Book One", "Fiction", "32")
         );
-        List<BookEntity> listByIsbn = Arrays.asList(
-                new BookEntity("0987654321", "Book Two", "Non-Fiction", "32")
+        List<Book> listByIsbn = Arrays.asList(
+                new Book("0987654321", "Book Two", "Non-Fiction", "32")
         );
-        List<BookEntity> listByCategory = Arrays.asList(
-                new BookEntity("1234567890", "Book One", "Fiction", "32"),
-                new BookEntity("0987654321", "Book Two", "Non-Fiction", "32")
+        List<Book> listByCategory = Arrays.asList(
+                new Book("1234567890", "Book One", "Fiction", "32"),
+                new Book("0987654321", "Book Two", "Non-Fiction", "32")
         );
 
         when(bookRepository.findByName("Book One")).thenReturn(listByName);
         when(bookRepository.findByIsbn("0987654321")).thenReturn(listByIsbn);
         when(bookRepository.findByCategory("Fiction")).thenReturn(listByCategory);
 
-        List<BookEntity> resultByName = bookCrudService.getBooksBy("Book One", "NAME");
+        List<Book> resultByName = bookCrudService.getBooksBy("Book One", "NAME");
         assertEquals(1, resultByName.size());
         assertEquals("1234567890", resultByName.get(0).getIsbn());
 
 
-        List<BookEntity> resultByIsbn = bookCrudService.getBooksBy("0987654321", "ISBN");
+        List<Book> resultByIsbn = bookCrudService.getBooksBy("0987654321", "ISBN");
         assertEquals(1, resultByIsbn.size());
         assertEquals("0987654321", resultByIsbn.get(0).getIsbn());
 
 
-        List<BookEntity> resultByCategory = bookCrudService.getBooksBy("Fiction", "CATEGORY");
+        List<Book> resultByCategory = bookCrudService.getBooksBy("Fiction", "CATEGORY");
         assertEquals(2, resultByCategory.size());
     }
 }

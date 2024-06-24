@@ -1,7 +1,7 @@
 package Project.bookity.DatabaseConfig;
 
 
-import Project.bookity.Entity.BookEntity;
+import com.bookity.project.candidate.arda.onur.persistence.model.Book;
 import com.bookity.project.candidate.arda.onur.persistence.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -50,7 +50,12 @@ public class DatabaseConfig {
                     String NAME= parts[1].trim();
                     String CATEGORY = parts[2].trim();
                     String IMAGESURL = parts[3].trim();
-                    bookRepository.save(new BookEntity(ISBN,CATEGORY,NAME,IMAGESURL));
+                    Book book = new Book();
+                    book.setIsbn(ISBN);
+                    book.setBookName(NAME);
+                    book.setCategory(CATEGORY);
+                    book.setImageUrl(IMAGESURL);
+                    bookRepository.save(book);
                 }
             }
             myReader.close();
