@@ -27,8 +27,8 @@ class BookCrudServiceTest {
     void getAllBooks() {
 
         List<Book> list = Arrays.asList(
-                new Book("1234567890", "Book One", "Fiction","32"),
-                new Book("0987654321", "Book Two", "Non-Fiction","32")
+                new Book(1L, "1234567890", "Book One", "Fiction","32"),
+                new Book(2L, "0987654321", "Book Two", "Non-Fiction","32")
 
         );
         when(bookRepository.findAll()).thenReturn(list);
@@ -38,14 +38,14 @@ class BookCrudServiceTest {
     void getBooksBy() {
 
         List<Book> listByName = Arrays.asList(
-                new Book("1234567890", "Book One", "Fiction", "32")
+                new Book(1L, "1234567890", "Book One", "Fiction", "32")
         );
         List<Book> listByIsbn = Arrays.asList(
-                new Book("0987654321", "Book Two", "Non-Fiction", "32")
+                new Book(2L, "0987654321", "Book Two", "Non-Fiction", "32")
         );
         List<Book> listByCategory = Arrays.asList(
-                new Book("1234567890", "Book One", "Fiction", "32"),
-                new Book("0987654321", "Book Two", "Non-Fiction", "32")
+                new Book(1L, "1234567890", "Book One", "Fiction", "32"),
+                new Book(2L, "0987654321", "Book Two", "Non-Fiction", "32")
         );
 
         when(bookRepository.findByName("Book One")).thenReturn(listByName);
