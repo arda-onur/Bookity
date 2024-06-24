@@ -2,13 +2,13 @@ package Project.bookity.Service;
 
 import Project.bookity.Entity.BookEntity;
 import Project.bookity.Repository.BookRepository;
+import com.bookity.project.candidate.arda.onur.service.BookCrudService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,9 +17,9 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ActiveProfiles("test")
-class BookServiceTest {
+class BookCrudServiceTest {
     @InjectMocks
-    BookService bookService;
+    BookCrudService bookCrudService;
     @Mock
     BookRepository bookRepository;
 
@@ -52,17 +52,17 @@ class BookServiceTest {
         when(bookRepository.findByIsbn("0987654321")).thenReturn(listByIsbn);
         when(bookRepository.findByCategory("Fiction")).thenReturn(listByCategory);
 
-        List<BookEntity> resultByName = bookService.getBooksBy("Book One", "NAME");
+        List<BookEntity> resultByName = bookCrudService.getBooksBy("Book One", "NAME");
         assertEquals(1, resultByName.size());
         assertEquals("1234567890", resultByName.get(0).getIsbn());
 
 
-        List<BookEntity> resultByIsbn = bookService.getBooksBy("0987654321", "ISBN");
+        List<BookEntity> resultByIsbn = bookCrudService.getBooksBy("0987654321", "ISBN");
         assertEquals(1, resultByIsbn.size());
         assertEquals("0987654321", resultByIsbn.get(0).getIsbn());
 
 
-        List<BookEntity> resultByCategory = bookService.getBooksBy("Fiction", "CATEGORY");
+        List<BookEntity> resultByCategory = bookCrudService.getBooksBy("Fiction", "CATEGORY");
         assertEquals(2, resultByCategory.size());
     }
 }

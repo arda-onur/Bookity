@@ -1,7 +1,7 @@
 package com.bookity.project.candidate.arda.onur.controller;
 
 import Project.bookity.Entity.BookEntity;
-import Project.bookity.Service.BookService;
+import com.bookity.project.candidate.arda.onur.service.BookCrudService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,15 +14,15 @@ import java.util.List;
 @RequestMapping("books")
 @RequiredArgsConstructor
 public class BookCrudRestController {
-    private final BookService bookService;
+    private final BookCrudService bookCrudService;
 
     @GetMapping
     public List<BookEntity> getAllBooks() {
-        return bookService.getAllBooks();
+        return bookCrudService.getAllBooks();
     }
 
     @GetMapping("/search")
     public List<BookEntity> getBooksBy(@RequestParam String input, @RequestParam String category) {
-        return bookService.getBooksBy(input, category);
+        return bookCrudService.getBooksBy(input, category);
     }
 }
