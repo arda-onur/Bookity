@@ -8,10 +8,11 @@
 		<version>3.3.0</version>
 		<relativePath/>
 	</parent>
+
 	<groupId>com.bookity.project</groupId>
 	<artifactId>candidate.arda.onur</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>bookity</name>
+	<version>0.0.1</version>
+	<name>candidate.arda.onur</name>
 	<description>Bookity Project</description>
 
 	<properties>
@@ -87,7 +88,6 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
