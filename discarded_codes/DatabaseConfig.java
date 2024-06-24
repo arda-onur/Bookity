@@ -38,7 +38,7 @@ public class DatabaseConfig {
     }
     @Bean
     public String createBooks(){
-        String path = "src/main/resources/books";
+        String path = "src/main/resources/V1_0_1__insert_book.sql";
         try {
             File myObj = new File(path);
             Scanner myReader = new Scanner(myObj);
