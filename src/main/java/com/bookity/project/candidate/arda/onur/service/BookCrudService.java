@@ -22,7 +22,7 @@ public class BookCrudService {
     public List<Book> getBooksBy(String input, String category) {
         log.info("Getting Books {} {}", category, input);
         if ("NAME".equals(category)) {
-            return bookRepository.findByName(input);
+            return bookRepository.findByBookNameLike(input).get();
         } else if ("ISBN".equals(category)) {
             return bookRepository.findByIsbn(input);
         } else
