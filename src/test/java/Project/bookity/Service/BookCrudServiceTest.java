@@ -1,7 +1,7 @@
 package Project.bookity.Service;
 
 import Project.bookity.Entity.BookEntity;
-import Project.bookity.Repository.BookRepository;
+import com.bookity.project.candidate.arda.onur.persistence.repository.BookRepository;
 import com.bookity.project.candidate.arda.onur.service.BookCrudService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

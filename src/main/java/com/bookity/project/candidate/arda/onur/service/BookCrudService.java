@@ -1,7 +1,7 @@
 package com.bookity.project.candidate.arda.onur.service;
 
 import Project.bookity.Entity.BookEntity;
-import Project.bookity.Repository.BookRepository;
+import com.bookity.project.candidate.arda.onur.persistence.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

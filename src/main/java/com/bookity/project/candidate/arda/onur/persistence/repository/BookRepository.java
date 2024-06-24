@@ -1,4 +1,4 @@
-package Project.bookity.Repository;
+package com.bookity.project.candidate.arda.onur.persistence.repository;
 
 import Project.bookity.Entity.BookEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
