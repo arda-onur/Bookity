@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: bookity
+
+  jpa:
+    generate-ddl: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:ardaonur1111@gmail.com}
+    password: ${MAIL_PASSWORD:ffrjtiucklsklymu}
+    properties:
+      mail.smtp.auth : true
+      mail.smtp.starttls.enable : true
+
