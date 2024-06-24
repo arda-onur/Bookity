@@ -1,27 +1,28 @@
-package Project.bookity.Controller;
+package com.bookity.project.candidate.arda.onur.controller;
 
 import Project.bookity.Entity.BookEntity;
 import Project.bookity.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("book")
-public class BookController {
+public class BookCrudRestController {
     @Autowired
     private BookService bookService;
 
     @GetMapping("/getbooks")
-    @ResponseBody
     public List<BookEntity> getAllBooks() {
         return bookService.getAllBooks();
     }
 
     @GetMapping("/search")
-    @ResponseBody
     public List<BookEntity> getBooksBy(@RequestParam String input, @RequestParam String category) {
-      return bookService.getBooksBy(input, category);
+        return bookService.getBooksBy(input, category);
     }
 }
