@@ -8,12 +8,12 @@
 		<version>3.3.0</version>
 		<relativePath/>
 	</parent>
-	<groupId>Project</groupId>
-	<artifactId>bookity</artifactId>
+	<groupId>com.bookity.project</groupId>
+	<artifactId>candidate.arda.onur</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bookity</name>
 	<description>Bookity Project</description>
-	<url/>
+
 	<properties>
 		<java.version>21</java.version>
 	</properties>
@@ -104,5 +104,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
