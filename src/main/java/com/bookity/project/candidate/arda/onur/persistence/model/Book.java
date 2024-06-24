@@ -14,6 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Book {
     @Id
+    private Long id;
     private String isbn;
     private String bookName;
     private String category;
