@@ -14,14 +14,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
-      @Bean
+    @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
-                .headers(x -> x.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
-                .csrf(AbstractHttpConfigurer::disable)
-                .formLogin(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(x-> x.anyRequest().permitAll())
-                .httpBasic(Customizer.withDefaults());
+            .httpBasic(Customizer.withDefaults())
+            .headers(x -> x.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
+            .csrf(AbstractHttpConfigurer::disable)
+            .formLogin(AbstractHttpConfigurer::disable)
+            .authorizeHttpRequests(x -> x.anyRequest().permitAll());
         return http.build();
     }
 }

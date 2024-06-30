@@ -10,7 +10,10 @@ spring:
     generate-ddl: false
     defer-datasource-initialization: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: bookity
 
   flyway:
     locations: "classpath:/db/migration"
@@ -27,7 +30,7 @@ spring:
       mail.smtp.starttls.enable : true
 
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/bookity}
     driver-class-name: org.postgresql.Driver
     username: ${DATABASE_USERNAME:postgres}
     password: ${DATABASE_PASSWORD:123456}
