@@ -1,6 +1,7 @@
 package com.bookity.project.candidate.arda.onur.controller;
 
-import com.bookity.project.candidate.arda.onur.persistence.model.Book;
+import com.bookity.project.candidate.arda.onur.persistence.dto.BookDto;
+import com.bookity.project.candidate.arda.onur.persistence.mapper.BookMapper;
 import com.bookity.project.candidate.arda.onur.service.BookCrudService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +16,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BookCrudRestController {
     private final BookCrudService bookCrudService;
+    private final BookMapper bookMapper;
 
     @GetMapping
-    public List<Book> getAllBooks() {
-        return bookCrudService.getAllBooks();
+    public List<BookDto> getAllBooks() {
+        return this.bookMapper.map(this.bookCrudService.getAllBooks());
     }
 
     @GetMapping("/search")
-    public List<Book> getBooksBy(@RequestParam String input, @RequestParam String category) {
-        return bookCrudService.getBooksBy(input, category);
+    public List<BookDto> getBooksBy(@RequestParam String input, @RequestParam String category) {
+        return this.bookMapper.map(this.bookCrudService.getBooksBy(input, category));
     }
 }
