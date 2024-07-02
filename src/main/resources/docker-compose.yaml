@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+
+  app:
+    image: bookityapp
+    container_name: BookityApp
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/bookity
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123456
+
+
+
+
+  db:
+   container_name: Database
+   image: postgres
+   restart: always
+   ports:
+     - "5432:5432"
+   environment:
+     POSTGRES_USERNAME: postgres
+     POSTGRES_PASSWORD: 123456
+     POSTGRES_DB: bookity
