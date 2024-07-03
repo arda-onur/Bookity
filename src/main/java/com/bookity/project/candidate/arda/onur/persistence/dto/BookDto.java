@@ -6,6 +6,7 @@ import java.io.Serializable;
 public record BookDto(
     String isbn,
     String bookName,
+    String category,
     String imageUrl) implements Serializable {
 
     @Serial
