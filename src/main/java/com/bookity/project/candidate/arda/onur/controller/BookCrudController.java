@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -25,8 +24,10 @@ public class BookCrudController {
     return "main";
     }
 
-
-    public List<BookDto> getBooksBy(@RequestParam String input, @RequestParam String category) {
-        return this.bookMapper.map(this.bookCrudService.getBooksBy(input, category));
+      @GetMapping("/search")
+    public String getBooksBy(@RequestParam String input, @RequestParam String category,Model model) {
+        List<BookDto> books = this.bookMapper.map(this.bookCrudService.getBooksBy(input, category));
+        model.addAttribute("books", books);
+        return "main";
     }
 }
