@@ -1,0 +1,10 @@
+{
+  "firstName": "john",
+  "lastName": " doe",
+  "email": "john.doe@test.com",
+  "password": "98765432",
+  "enabled": "false",
+  "accountNonExpired": "true",
+  "accountNonLocked": "true",
+  "credentialsNonExpired": "true"
+}
