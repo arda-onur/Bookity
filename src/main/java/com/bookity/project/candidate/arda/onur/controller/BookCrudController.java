@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -17,17 +18,17 @@ public class BookCrudController {
     private final BookCrudService bookCrudService;
     private final BookMapper bookMapper;
 
-    @GetMapping
+    @GetMapping("/getbooks")
     public String getAllBooks(Model model) {
     List<BookDto> books = this.bookMapper.map(this.bookCrudService.getAllBooks());
     model.addAttribute("books", books);
-    return "main";
+    return "index";
     }
 
       @GetMapping("/search")
     public String getBooksBy(@RequestParam String input, @RequestParam String category,Model model) {
         List<BookDto> books = this.bookMapper.map(this.bookCrudService.getBooksBy(input, category));
         model.addAttribute("books", books);
-        return "main";
+        return "index";
     }
 }

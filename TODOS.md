@@ -11,8 +11,8 @@
    1. [x] Learn the `serialVersionUID` meaning.
 5. [x] Learn how to use `Mapstruct`.
 6. [ ] Learn use of `Maven Compiler` Plugin.
-7. [ ] Learn how to make MVC Configuration.
-8. [ ] Learn how to compose HTML files with `Thymeleaf`.
+7. [x] Learn how to make MVC Configuration.
+8. [x] Learn how to compose HTML files with `Thymeleaf`.
 9. [x] Learn the below commands:
    1. Wrapper Version of Command
       ```bash

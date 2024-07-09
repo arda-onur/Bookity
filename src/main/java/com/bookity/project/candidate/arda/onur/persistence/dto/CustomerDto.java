@@ -4,10 +4,9 @@ import java.io.Serial;
 import java.io.Serializable;
 
 public record CustomerDto(
-        String username,
-        String password) implements Serializable {
-
+        String email,
+        String password) implements Serializable   {
     @Serial
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 83498734252853342L;
 
 }
