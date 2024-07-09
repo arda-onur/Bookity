@@ -1,4 +1,4 @@
-package com.bookity.project.candidate.arda.onur.config.secutiry;
+package com.bookity.project.candidate.arda.onur.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
