@@ -28,5 +28,6 @@ public interface UserMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "userId", ignore = true)
     @Mapping(target = "email", ignore = true)
+    @Mapping(target = "password", ignore = true)
     User update(@MappingTarget User userToBeUpdated, UpdateUserRequest updateUserRequest);
 }
