@@ -1,0 +1,41 @@
+    /*
+    @GetMapping("/verify")
+    public ResponseEntity verifyUser(@RequestParam("code") String validationCode) {
+        return userCrudService.verifyUser(validationCode);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity login(@RequestBody UserResponse userResponse) {
+        return userCrudService.login(userResponse);
+    }
+    */
+
+    public ResponseEntity verifyUser(String verificationCode) {
+        log.info("Verifying verification code {}", verificationCode);
+        Resource htmlFile = new ClassPathResource("static/verifiedPage.html");
+        userRepository.updateVerificationStatus(verificationCode);
+        return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(htmlFile);
+    }
+
+    private void sendVerification(UserResponse userResponse, String siteUrl, String generatedVerificationCode) throws MessagingException, UnsupportedEncodingException {
+
+        String subject = "Verify your registration";
+        String from = "Bookity Team";
+        String VerifyUrl = siteUrl + "/user/verify?code=" + generatedVerificationCode;
+        String content = "<p>Hello " + userResponse.getUsername() + ", </p>"
+            + "<p> Please click the link below to verify email adress </p>"
+            + "<H2><a href=\"" + VerifyUrl + "\"> VERIFY </a></H2>"
+            + "<p> Thank You <br> Bookity Team </p> ";
+
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+        MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
+        mimeMessageHelper.setFrom("ardaonur1111@gmail.com", from);
+        mimeMessageHelper.setTo(userResponse.getMail());
+        mimeMessageHelper.setSubject(subject);
+        mimeMessageHelper.setText(content, true);
+        mailSender.send(mimeMessage);
+    }
+
+private String GenerateVerificationCode() {
+        return RandomStringUtils.randomAlphanumeric(15);
+    }

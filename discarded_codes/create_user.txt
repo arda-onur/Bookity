@@ -1,0 +1,12 @@
+    //@Autowired
+    //private JavaMailSender mailSender;
+
+        boolean isUsernameExisted = userRepository.existsById(userResponse.getUsername());
+        if (isUsernameExisted) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        logger.info("Registering new user {}", userResponse.getUsername());
+        String generatedVerificationCode = GenerateVerificationCode();
+        userRepository.save(new UserEntity(userResponse.getUsername(), userResponse.getPassword(), userResponse.getMail(), generatedVerificationCode, false));
+        sendVerification(userResponse, siteUrl, generatedVerificationCode);
+        return ResponseEntity.status(HttpStatus.CREATED).build();

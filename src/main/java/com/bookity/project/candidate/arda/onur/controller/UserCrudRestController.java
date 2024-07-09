@@ -56,16 +56,4 @@ public class UserCrudRestController {
         userToBeUpdated = this.userCrudService.updateUser(userToBeUpdated);
         return ResponseEntity.ok(this.userMapper.map(userToBeUpdated));
     }
-
-    /*
-    @GetMapping("/verify")
-    public ResponseEntity verifyUser(@RequestParam("code") String validationCode) {
-        return userCrudService.verifyUser(validationCode);
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity login(@RequestBody UserResponse userResponse) {
-        return userCrudService.login(userResponse);
-    }
-    */
 }
