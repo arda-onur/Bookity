@@ -1,9 +1,9 @@
-package com.bookity.project.candidate.arda.onur.persistence.mapper;
+package com.bookity.project.candidate.arda.onur.mapper;
 
 import com.bookity.project.candidate.arda.onur.controller.CreateUserRequest;
 import com.bookity.project.candidate.arda.onur.controller.UpdateUserRequest;
-import com.bookity.project.candidate.arda.onur.persistence.dto.UserDto;
-import com.bookity.project.candidate.arda.onur.persistence.model.User;
+import com.bookity.project.candidate.arda.onur.dto.UserDto;
+import com.bookity.project.candidate.arda.onur.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

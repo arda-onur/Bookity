@@ -1,4 +1,4 @@
-package com.bookity.project.candidate.arda.onur.persistence.model;
+package com.bookity.project.candidate.arda.onur.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

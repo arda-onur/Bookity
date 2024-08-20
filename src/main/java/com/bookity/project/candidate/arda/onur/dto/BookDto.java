@@ -1,11 +1,11 @@
-package com.bookity.project.candidate.arda.onur.persistence.dto;
+package com.bookity.project.candidate.arda.onur.dto;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 public record BookDto(
     String isbn,
-    String bookName,
+    String title,
     String imageUrl) implements Serializable {
 
     @Serial

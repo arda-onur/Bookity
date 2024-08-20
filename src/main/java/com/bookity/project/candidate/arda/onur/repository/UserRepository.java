@@ -1,6 +1,6 @@
 package com.bookity.project.candidate.arda.onur.persistence.repository;
 
-import com.bookity.project.candidate.arda.onur.persistence.model.User;
+import com.bookity.project.candidate.arda.onur.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

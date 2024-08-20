@@ -1,8 +1,8 @@
 package com.bookity.project.candidate.arda.onur.controller;
 
-import com.bookity.project.candidate.arda.onur.persistence.dto.UserDto;
-import com.bookity.project.candidate.arda.onur.persistence.mapper.UserMapper;
-import com.bookity.project.candidate.arda.onur.persistence.model.User;
+import com.bookity.project.candidate.arda.onur.dto.UserDto;
+import com.bookity.project.candidate.arda.onur.mapper.UserMapper;
+import com.bookity.project.candidate.arda.onur.model.User;
 import com.bookity.project.candidate.arda.onur.service.UserCrudService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;

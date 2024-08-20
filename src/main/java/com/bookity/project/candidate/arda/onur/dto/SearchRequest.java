@@ -1,4 +1,4 @@
-package com.bookity.project.candidate.arda.onur.persistence.dto;
+package com.bookity.project.candidate.arda.onur.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

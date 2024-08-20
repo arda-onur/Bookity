@@ -2,8 +2,7 @@ package com.bookity.project.candidate.arda.onur;
 
 import com.bookity.project.candidate.arda.onur.exception.UserAlreadyExistsException;
 import com.bookity.project.candidate.arda.onur.exception.UserNotFoundException;
-import com.bookity.project.candidate.arda.onur.persistence.model.Book;
-import com.bookity.project.candidate.arda.onur.persistence.model.User;
+import com.bookity.project.candidate.arda.onur.model.User;
 import com.bookity.project.candidate.arda.onur.persistence.repository.UserRepository;
 import com.bookity.project.candidate.arda.onur.service.UserCrudService;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

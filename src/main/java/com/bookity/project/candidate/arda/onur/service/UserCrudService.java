@@ -2,7 +2,7 @@ package com.bookity.project.candidate.arda.onur.service;
 
 import com.bookity.project.candidate.arda.onur.exception.UserAlreadyExistsException;
 import com.bookity.project.candidate.arda.onur.exception.UserNotFoundException;
-import com.bookity.project.candidate.arda.onur.persistence.model.User;
+import com.bookity.project.candidate.arda.onur.model.User;
 import com.bookity.project.candidate.arda.onur.persistence.repository.UserRepository;
 import com.bookity.project.candidate.arda.onur.utility.ArgumentPreconditions;
 import lombok.RequiredArgsConstructor;

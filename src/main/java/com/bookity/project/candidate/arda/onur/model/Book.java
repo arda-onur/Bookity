@@ -1,4 +1,4 @@
-package com.bookity.project.candidate.arda.onur.persistence.model;
+package com.bookity.project.candidate.arda.onur.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,7 +16,7 @@ public class Book {
     @Id
     private Integer id;
     private String isbn;
-    private String bookName;
+    private String title;
     private String category;
     private String imageUrl;
 }

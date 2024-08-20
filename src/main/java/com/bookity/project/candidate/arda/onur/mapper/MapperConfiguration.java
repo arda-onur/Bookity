@@ -1,4 +1,4 @@
-package com.bookity.project.candidate.arda.onur.persistence.mapper;
+package com.bookity.project.candidate.arda.onur.mapper;
 
 import org.mapstruct.MapperConfig;
 

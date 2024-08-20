@@ -2,7 +2,6 @@ package Project.bookity.DatabaseConfig;
 
 
 import com.bookity.project.candidate.arda.onur.persistence.model.Book;
-import com.bookity.project.candidate.arda.onur.persistence.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
