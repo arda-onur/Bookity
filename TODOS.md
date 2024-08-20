@@ -22,4 +22,10 @@
       ```bash
          mvn clean package spring-boot:run -DskipTests=true
       ```
-10. 
+10. [ ] Learn Hibernate Associations (Relations)
+    1. `One-to-One` Mapping
+       1. Unidirectional,
+       2. Bidirectional.
+    2. `One-to-Many` Mapping
+       1. Unidirectional,
+       2. Bidirectional.

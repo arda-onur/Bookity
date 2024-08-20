@@ -34,3 +34,5 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: ${DATABASE_USERNAME:postgres}
     password: ${DATABASE_PASSWORD:123456}
+
+api-version: 1.0.0

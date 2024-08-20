@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" integrity="sha384-oOE/3m0LUMPub4kaC09mrdEhIc+e3exm4xOGxAmuFXhBNF4hcg/6MiAXAf5p0P56" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form class="form-signin" method="post" th:action="@{/register}">
+        <h2 class="form-signin-heading">Please sign up</h2>
+        <div th:if="${errors != null}">
+            <ul>
+                <li th:each="error : ${errors}" th:text="${error.defaultMessage}"></li>
+            </ul>
+        </div>
+        <p>
+            <label for="email" class="sr-only">Username</label>
+            <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+        <p>
+            <label for="firstname" class="sr-only">Firstname</label>
+            <input type="firstname" id="firstname" name="firstname" class="form-control" placeholder="First name" required>
+        </p>
+        <p>
+            <label for="lastname" class="sr-only">Lastname</label>
+            <input type="lastname" id="lastname" name="lastname" class="form-control" placeholder="Last name" required>
+        </p>
+
+
+        <div class="btn-group btn-group-lg btn-block" role="group">
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+            <a class="btn btn-secondary" th:href="@{/login}">Back</a>
+        </div>
+    </form>
+</div>
+</body>
+<style>
+    .btn-group .btn {
+        flex: 1;
+    }
+</style>
+</html>
