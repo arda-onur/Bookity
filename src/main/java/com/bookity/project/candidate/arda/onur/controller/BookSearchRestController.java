@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("books")
+@RequestMapping("/books")
 @RequiredArgsConstructor
 public class BookCrudRestController {
     private final BookCrudService bookCrudService;

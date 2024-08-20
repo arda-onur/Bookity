@@ -14,11 +14,6 @@ import java.util.List;
 public class BookCrudService {
     private final BookRepository bookRepository;
 
-    public List<Book> getAllBooks() {
-        log.info("Getting all Books");
-        return bookRepository.findAll();
-    }
-
     public List<Book> getBooksBy(String input, String category) {
         log.info("Getting Books {} {}", category, input);
         if ("NAME".equals(category)) {
