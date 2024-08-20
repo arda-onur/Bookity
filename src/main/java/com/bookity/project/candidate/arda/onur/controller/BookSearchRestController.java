@@ -1,12 +1,15 @@
 package com.bookity.project.candidate.arda.onur.controller;
 
 import com.bookity.project.candidate.arda.onur.persistence.dto.BookDto;
+import com.bookity.project.candidate.arda.onur.persistence.dto.SearchRequest;
 import com.bookity.project.candidate.arda.onur.persistence.mapper.BookMapper;
-import com.bookity.project.candidate.arda.onur.service.BookCrudService;
+import com.bookity.project.candidate.arda.onur.service.BookSearchService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,17 +17,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/books")
 @RequiredArgsConstructor
-public class BookCrudRestController {
-    private final BookCrudService bookCrudService;
+public class BookSearchRestController {
+    private final BookSearchService bookSearchService;
     private final BookMapper bookMapper;
 
-    @GetMapping
-    public List<BookDto> getAllBooks() {
-        return this.bookMapper.map(this.bookCrudService.getAllBooks());
-    }
-
-    @GetMapping("/search")
-    public List<BookDto> getBooksBy(@RequestParam String input, @RequestParam String category) {
-        return this.bookMapper.map(this.bookCrudService.getBooksBy(input, category));
+    @PostMapping
+    public ResponseEntity<List<BookDto>> searchBooks(@RequestBody SearchRequest searchRequest, Pageable pageable) {
+        return ResponseEntity.ok(List.of());
     }
 }

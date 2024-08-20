@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class BookCrudService {
+public class BookSearchService {
     private final BookRepository bookRepository;
 
     public List<Book> getBooksBy(String input, String category) {
