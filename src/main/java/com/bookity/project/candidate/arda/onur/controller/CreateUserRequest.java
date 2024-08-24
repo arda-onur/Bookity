@@ -1,12 +1,13 @@
 package com.bookity.project.candidate.arda.onur.controller;
 
+import com.bookity.project.candidate.arda.onur.annotation.MatchPasswords;
 import com.bookity.project.candidate.arda.onur.utility.RegisterNewUserRegexPatterns;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
-
+@MatchPasswords
 public record CreateUserRequest(
     @NotBlank(message = "{create.user.request.firstName.not.blank.message}")
     @Size(message = "{create.user.request.firstName.size.message}", min = 3, max = 255)
