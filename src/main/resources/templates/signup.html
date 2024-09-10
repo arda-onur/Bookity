@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-signin" method="post" th:action="@{/register}">
+    <form class="form-signin" method="post" th:action="@{/users}">
         <h2 class="form-signin-heading">Please sign up</h2>
         <div th:if="${errors != null}">
             <ul>
@@ -19,25 +19,32 @@
             </ul>
         </div>
         <p>
-            <label for="email" class="sr-only">Username</label>
-            <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+            <label for="firstName" class="sr-only">Firstname</label>
+            <input type="firstName" id="firstName" name="firstName" class="form-control" placeholder="First name" required>
+        </p>
+        <p>
+            <label for="lastname" class="sr-only">Lastname</label>
+            <input type="lastName" id="lastName" name="lastName" class="form-control" placeholder="Last name" required>
         </p>
         <p>
             <label for="password" class="sr-only">Password</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         </p>
+
         <p>
-            <label for="firstname" class="sr-only">Firstname</label>
-            <input type="firstname" id="firstname" name="firstname" class="form-control" placeholder="First name" required>
+            <label for="confirmPassword" class="sr-only">confirm Password</label>
+            <input type="confirmPassword" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="confirmPassword" required>
         </p>
+
         <p>
-            <label for="lastname" class="sr-only">Lastname</label>
-            <input type="lastname" id="lastname" name="lastname" class="form-control" placeholder="Last name" required>
+            <label for="email" class="sr-only">Email</label>
+            <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
         </p>
+
 
 
         <div class="btn-group btn-group-lg btn-block" role="group">
-            <button class="btn btn-primary" type="submit">Sign Up</button>
+            <button class="btn btn-primary" type="submit "th:href="@{/login}">Sign Up</button>
             <a class="btn btn-secondary" th:href="@{/login}">Back</a>
         </div>
     </form>

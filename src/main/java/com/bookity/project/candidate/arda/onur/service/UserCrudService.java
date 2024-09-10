@@ -7,15 +7,34 @@ import com.bookity.project.candidate.arda.onur.persistence.repository.UserReposi
 import com.bookity.project.candidate.arda.onur.utility.ArgumentPreconditions;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class UserCrudService {
+public class UserCrudService implements UserDetailsService {
+
     private final UserRepository userRepository;
+    private final EmailService emailService;
+    private final PasswordEncoder passwordEncoder;
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findUserByEmail(email)
+                .orElseThrow(()->new UserNotFoundException("user.not.found.message",email));
+
+        return new org.springframework.security.core.userdetails.User(
+                user.getEmail(),user.getPassword(),new ArrayList<>());
+    }
+
 
     public User getUserByUserId(String userId) {
         ArgumentPreconditions.requireNotBlank("Argument 'userId' can not be blank!", userId);
@@ -27,6 +46,8 @@ public class UserCrudService {
 
     public User createUser(User newUser) {
         Objects.requireNonNull(newUser, "Argument 'newUser' can not be null!");
+
+
         log.info("Creating new user with email ({}).", newUser.getEmail());
 
         this.userRepository.findUserByEmail(newUser.getEmail())
@@ -34,7 +55,11 @@ public class UserCrudService {
                 throw new UserAlreadyExistsException("user.already.exists.message", user.getEmail());
             });
 
-        return this.userRepository.save(newUser);
+        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        this.userRepository.save(newUser);
+        this.emailService.sendVerificationEmail(newUser);
+
+        return newUser;
     }
 
     public void deleteUserByUserId(String userId) {
@@ -49,4 +74,6 @@ public class UserCrudService {
         log.info("Updating a user with userId ({}).", userToBeUpdated.getUserId());
         return this.userRepository.save(userToBeUpdated);
     }
+
+
 }
